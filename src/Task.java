@@ -42,8 +42,4 @@ public class Task {
     public void setStatus(TaskStatus status) {
         this.status = status;
     }
-
-    public void wrongMethod(){
-        System.out.println("this method is wrong!!!");
-    }
 }
