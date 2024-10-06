@@ -4,7 +4,7 @@ public class Task {
     private String description;
     private TaskStatus status;
 
-    public Task(int id, String name, String description, TaskStatus status) {
+    protected Task(int id, String name, String description, TaskStatus status) {
         this.id = id;
         this.name = name;
         this.description = description;
