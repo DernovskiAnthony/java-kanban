@@ -79,21 +79,21 @@ public class TaskManager {
         return allTasks;
     }
 
-    public List<String> getAllEpics(){
-        List<String> allEpics = new ArrayList<>();
+    public List<Epic> getAllEpics(){
+        List<Epic> allEpics = new ArrayList<>();
 
         for(Epic t : epics.values()){
-            allEpics.add(t.getName());
+            allEpics.add(t);
 
         }
         return allEpics;
     }
 
-    public List<String> getAllSubTasks(){
-        List<String> allSubTasks = new ArrayList<>();
+    public List<SubTask> getAllSubTasks(){
+        List<SubTask> allSubTasks = new ArrayList<>();
 
         for(SubTask t : subTasks.values()){
-            allSubTasks.add(t.getName());
+            allSubTasks.add(t);
 
         }
         return allSubTasks;
