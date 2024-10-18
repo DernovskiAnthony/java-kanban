@@ -1,8 +1,8 @@
-import java.sql.SQLOutput;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 public class TaskManager {
 
@@ -14,22 +14,20 @@ public class TaskManager {
     //Возможность хранить задачи всех типов
 
     public void addTask(Task task){
-        task.setId(nextId);
-        nextId++;
+        task.setId(nextId++);
         tasks.put(task.getId(), task);
+        System.out.println(tasks);
     }
 
     public void addEpic(Epic epic){
-        epic.setId(nextId);
-        nextId++;
+        epic.setId(nextId++);
         epics.put(epic.getId(), epic);
+        System.out.println(epics);
 
     }
 
     public void addSubTask(SubTask subTask) {
-        subTask.setId(nextId);
-        nextId++;
-
+        subTask.setId(nextId++);
         subTasks.put(subTask.getId(), subTask);
 
         Integer epicId = subTask.getEpicId();
@@ -39,15 +37,43 @@ public class TaskManager {
 
         Integer subTaskId = subTask.getId();
         subTaskIds.add(subTaskId);
+
+
+
+        for(Integer itemId : subTaskIds){
+            ArrayList<TaskStatus> checkStatusOfEpic =  new ArrayList<>();
+            TaskStatus anItem = subTasks.get(itemId).getStatus();
+            checkStatusOfEpic.add(anItem);
+            if(checkStatusOfEpic.contains(TaskStatus.IN_PROGRESS)){
+                epic.setStatus(TaskStatus.IN_PROGRESS);
+            } else {
+                for(TaskStatus status : checkStatusOfEpic){
+                    int statusNew = 0;
+                    int statusDone = 0;
+                    if(status.equals(TaskStatus.NEW)){
+                        statusNew++;
+                } else if(status.equals(TaskStatus.DONE){
+                        statusDone++;
+                    }
+                    if(statusDone == checkStatusOfEpic.size()){
+                        epic.setStatus(TaskStatus.DONE);
+                    } else{
+                        epic.setStatus(TaskStatus.NEW);
+                    }
+                }
+        }
+
+
+        }
     }
 
     //a) получение списка всех задач
 
-    public List<String> getAllTasks(){
-        List<String> allTasks = new ArrayList<>();
+    public List<Task> getAllTasks(){
+        List<Task> allTasks = new ArrayList<>();
 
         for(Task t : tasks.values()){
-            allTasks.add(t.getName());
+            allTasks.add(t);
 
         }
         return allTasks;
@@ -142,8 +168,7 @@ public class TaskManager {
     }
 
     public void updateSubTask(SubTask subTask) {
-        subTask.setId(nextId);
-        nextId++;
+        subTask.setId(nextId++);
 
         subTasks.put(subTask.getId(), subTask);
 
@@ -154,6 +179,34 @@ public class TaskManager {
 
         Integer subTaskId = subTask.getId();
         subTaskIds.add(subTaskId);
+
+        for(Integer itemId : subTaskIds){
+            ArrayList<TaskStatus> checkStatusOfEpic =  new ArrayList<>();
+            TaskStatus anItem = subTasks.get(itemId).getStatus();
+            checkStatusOfEpic.add(anItem);
+            if(checkStatusOfEpic.contains(TaskStatus.IN_PROGRESS)){
+                epic.setStatus(TaskStatus.IN_PROGRESS);
+            } else {
+                for(TaskStatus status : checkStatusOfEpic){
+                    int statusNew = 0;
+                    int statusDone = 0;
+                    if(status.equals(TaskStatus.NEW)){
+                        statusNew++;
+                    } else if(status.equals(TaskStatus.DONE){
+                        statusDone++;
+                    }
+                    if(statusDone == checkStatusOfEpic.size()){
+                        epic.setStatus(TaskStatus.DONE);
+                    } else{
+                        epic.setStatus(TaskStatus.NEW);
+                    }
+                }
+            }
+
+
+        }
+
+
     }
 
 
