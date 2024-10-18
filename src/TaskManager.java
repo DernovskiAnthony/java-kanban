@@ -154,7 +154,7 @@ public class TaskManager {
         updateEpicStatus(epic);
     }
 
-    public void updateEpicStatus(Epic epic){
+    private void updateEpicStatus(Epic epic){
 
         ArrayList<TaskStatus> checkStatusOfEpic =  new ArrayList<>();
         int statusNew = 0;
