@@ -11,18 +11,18 @@ public class TaskManager {
     private HashMap<Integer, SubTask> subTasks = new HashMap<>();
     private int nextId = 1;
 
-    //Возможность хранить задачи всех типов
+
 
     public void addTask(Task task){
         task.setId(nextId++);
         tasks.put(task.getId(), task);
-        System.out.println(tasks);
+
     }
 
     public void addEpic(Epic epic){
         epic.setId(nextId++);
         epics.put(epic.getId(), epic);
-        System.out.println(epics);
+
 
     }
 
@@ -171,7 +171,7 @@ public class TaskManager {
 
                     if(status.equals(TaskStatus.NEW)){
                         statusNew++;
-                    } else if(status.equals(TaskStatus.DONE){
+                    } else if(status.equals(TaskStatus.DONE)){
                         statusDone++;
                     }
                     if(statusDone == checkStatusOfEpic.size()){
