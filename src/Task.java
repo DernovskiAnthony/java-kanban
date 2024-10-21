@@ -1,8 +1,21 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Task {
     private int id;
     private String name;
     private String description;
     private TaskStatus status;
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", status=" + status +
+                '}';
+    }
 
     protected Task(int id, String name, String description, TaskStatus status) {
         this.id = id;
@@ -10,6 +23,9 @@ public class Task {
         this.description = description;
         this.status = status;
     }
+
+
+
 
 
 
@@ -45,5 +61,9 @@ public class Task {
     public void setStatus(TaskStatus status) {
         this.status = status;
     }
+
+
+
+
 }
 
