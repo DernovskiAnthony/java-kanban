@@ -2,11 +2,9 @@ import java.util.HashMap;
 import java.util.List;
 
 public interface TaskManager {
-
     HashMap<Integer, Task> tasks = new HashMap<>();
     HashMap<Integer, Epic> epics = new HashMap<>();
     HashMap<Integer, SubTask> subTasks = new HashMap<>();
-
 
     void addTask(Task task);
 
