@@ -13,6 +13,7 @@ public class InMemoryHistoryManager  implements HistoryManager {
     public void add(Task task) {
         if (watchedTasks.size() > ARRAY_SIZE) {
             watchedTasks.remove(0);
+            watchedTasks.add(task);
         } else {
             watchedTasks.add(task);
         }

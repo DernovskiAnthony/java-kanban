@@ -8,7 +8,7 @@ class InMemoryTaskManagerTest {
     InMemoryTaskManager taskManager = new InMemoryTaskManager();
 
     @BeforeAll
-    void createHistoryManger(){
+    static void createHistoryManger(){
         HistoryManager historyManager;
 
     }

@@ -1,6 +1,7 @@
 public class Main {
 
     public static void main(String[] args) {
+
         InMemoryTaskManager taskManager = new InMemoryTaskManager();
         Task task1 = new Task(0, "Купить гараж", "Купить гараж в Новосибирске", TaskStatus.NEW);
         taskManager.addTask(task1);
@@ -13,7 +14,5 @@ public class Main {
 
         SubTask subTask1 = new SubTask(3,0, "Найти риэлтора", "Нужен хороший риэлтор", TaskStatus.NEW);
         taskManager.addSubTask(subTask1);
-
-
     }
 }
